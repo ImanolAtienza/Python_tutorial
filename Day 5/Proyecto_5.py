@@ -45,18 +45,24 @@ while intentos > 0:
     print(f"La palabra actual está así... {ahorcado}")
     caracter = input('Introduce un caracter: ')
     if comprobar_en_palabra(palabra_juego, caracter):
-        print('Caracter encontrado')
-        lista_correctas.append(caracter)
-        ahorcado = modificar_ahorcado(palabra_juego)
+        if caracter in lista_correctas:
+            print(f'Ya introdujiste ese caracter correcto antes')
+        else:
+            print('Caracter encontrado')
 
-        if juego_terminado(ahorcado):
-            exito = True
-            break
+            lista_correctas.append(caracter)
+            ahorcado = modificar_ahorcado(palabra_juego)
+
+            if juego_terminado(ahorcado):
+                exito = True
+                break
     else:
         print('El caracter introducido no está en la palabra')
         lista_incorrectas.append(caracter)
         print(f"Está es la lista de caracteres incorrectos: {lista_incorrectas}")
         intentos -= 1
+
+    print('-------------------------------')
 
 if exito:
     print('Juego terminado con exito!')
