@@ -46,7 +46,7 @@ while intentos > 0:
     caracter = input('Introduce un caracter: ')
     if comprobar_en_palabra(palabra_juego, caracter):
         if caracter in lista_correctas:
-            print(f'Ya introdujiste ese caracter correcto antes')
+            print('Ya introdujiste ese caracter correcto antes')
         else:
             print('Caracter encontrado')
 
